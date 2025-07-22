@@ -20,6 +20,7 @@
     <input type="text" name='group' placeholder="Guruh raqami:"> <br> <br>
     <input type="number" name='grade' placeholder="kurs:"> <br> <br>
     <button type="submit">submit</button>
+    </form>
     <br> <br> <br>
     <table class="table table-striped table-bordered">
     <thead class="table-dark">
@@ -29,6 +30,7 @@
             <th>Faculty</th>
             <th>Group</th>
             <th>Grade</th>
+            <th>remove</th>
         </tr>
     </thead>
     <tbody>
@@ -39,11 +41,12 @@
             <td>{{ student.faculty }}</td>
             <td>{{ student.group }}</td>
             <td>{{ student.grade }}</td>
+            <td><a href="{% url 'delete' student.id %}"><button class="btn btn-danger">delete</button></a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-</form>
+
 </body>
 </html>

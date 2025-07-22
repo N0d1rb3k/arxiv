@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import arxivdb
 def home(request):
     if request.method == 'POST':
@@ -12,3 +12,8 @@ def home(request):
         return redirect('home')
     allStudents = arxivdb.objects.all()
     return render(request,'main/home.html',{'students':allStudents})
+
+def delete(request,id):
+    person = get_object_or_404(arxivdb,id=id)
+    person.delete()
+    return redirect('home')
